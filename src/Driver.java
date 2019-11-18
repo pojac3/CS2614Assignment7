@@ -34,9 +34,5 @@ public class Driver {
 				}
 			}
 		}
-		
-		for (int i = 0; i < tr.files.size(); i++) {
-			System.out.println(tr.files.get(i).getName());
-		}
 	}
 }
