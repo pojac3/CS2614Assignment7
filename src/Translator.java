@@ -26,8 +26,14 @@ public class Translator {
 			if (currentLine.contains("push")) {
 				split = currentLine.split(" ");
 				if (currentLine.contains("constant")) {
-					
+					vmFile.add("@" + split[2]);
+					vmFile.add("D=A");
+				} else if (currentLine.contains("local")) {
+					vmFile.add("@" + split[2]);
+					vmFile.add("@" + split[2]);
 				}
+				
+				
 			}
 		}
 		
