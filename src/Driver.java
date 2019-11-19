@@ -1,5 +1,7 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -35,5 +37,21 @@ public class Driver {
 				}
 			}
 		}
+		
+		//now we need to go ahead and write everything from tr into a file
+		//we will use a bufferedwriter for this
+		
+		BufferedWriter bw = new BufferedWriter(new FileWriter(inputName + ".asm"));
+		
+		//looping through each line of parsed data inside of vmFile
+		for(int i = 0; i < tr.vmFile.size(); i++) {
+			bw.append(tr.vmFile.get(i));
+			
+			//this if statement is so we dont have an extra empty line at the end
+			if (i + 1 < tr.vmFile.size()) {
+				bw.append("\n");
+			}
+		}
+		bw.close();
 	}
 }
